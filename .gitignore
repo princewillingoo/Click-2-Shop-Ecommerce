@@ -9,7 +9,9 @@ cert*
 __pycache__
 db.sqlite3
 media
+media/
 assets
+assets/
 
 # Backup files # 
 *.bak 
