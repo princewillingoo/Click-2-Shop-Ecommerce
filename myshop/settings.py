@@ -29,7 +29,9 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+
+CSRF_TRUSTED_ORIGINS = ['https://*.ngrok.io']
 
 
 # Application definition
@@ -149,5 +151,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 PAYSTACK_TEST_SECRETE_KEY=env('PAYSTACK_TEST_SECRETE_KEY')
 PAYSTACK_TEST_PUBLIC_KEY=env('PAYSTACK_TEST_PUBLIC_KEY')
+PAYSTACK_INITIALIZE_PAYMENT_URL= 'https://api.paystack.co/transaction/initialize'
 #Test Callback URL
 #Test Webhook URL
