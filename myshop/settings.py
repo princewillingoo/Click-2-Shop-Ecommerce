@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
+    'payment.apps.PaymentConfig',
 ]
 
 MIDDLEWARE = [
@@ -145,3 +146,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CART_SESSION_ID = 'cart'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+PAYSTACK_TEST_SECRETE_KEY=env('PAYSTACK_TEST_SECRETE_KEY')
+PAYSTACK_TEST_PUBLIC_KEY=env('PAYSTACK_TEST_PUBLIC_KEY')
+#Test Callback URL
+#Test Webhook URL
