@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from shop.models import Product
 
@@ -10,7 +11,7 @@ class Order(models.Model):
     city = models.CharField(max_length=100)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    # payment_ref = models.CharField(max_length=15)
+    paystack_payment_ref = models.CharField(max_length=15, blank=True)
     paid = models.BooleanField(default=False)
     
     class Meta:
@@ -24,6 +25,13 @@ class Order(models.Model):
     
     def get_total_cost(self):
         return sum(item.get_cost() for item in self.items.all())
+    
+    def get_paystack_ref_url(self):
+        if not self.paystack_payment_ref:
+            # no payment associated
+            return ''
+
+        return 'https://api.paystack.co/transaction/verify/{}'.format(self.paystack_payment_ref)
     
     
 class OrderItem(models.Model):
