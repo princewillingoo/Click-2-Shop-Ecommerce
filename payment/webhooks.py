@@ -8,6 +8,7 @@ from orders.models import Order
 
 secret = settings.PAYSTACK_TEST_SECRETE_KEY
 
+
 @csrf_exempt
 def paystack_webhook(request):
     payload = request.body
@@ -16,7 +17,7 @@ def paystack_webhook(request):
     event = None
 
     try:
-        hash =  hmac.new(secret.encode('utf-8'), payload, digestmod=hashlib.sha512).hexdigest()
+        hash = hmac.new(secret.encode('utf-8'), payload, digestmod=hashlib.sha512).hexdigest()
         if hash == sig_header:
             body_unicode = payload.decode('utf-8')
             body = json.loads(body_unicode)
@@ -35,8 +36,8 @@ def paystack_webhook(request):
 
     if event == 'charge.success':
         data, order_id = body["data"], body['data']['metadata']['order_id']
-        
-        if ((data["status"] == 'success') and (data["gateway_response"] == "Successful")):
+
+        if (data["status"] == 'success') and (data["gateway_response"] == "Successful"):
             try:
                 order = Order.objects.get(id=order_id)
             except Order.DoesNotExist:
