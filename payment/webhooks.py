@@ -5,6 +5,7 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from orders.models import Order
+from .tasks import payment_completed
 
 secret = settings.PAYSTACK_TEST_SECRETE_KEY
 
@@ -45,6 +46,8 @@ def paystack_webhook(request):
             # mark order as paid
             order.paid = True
             order.save(force_update=True)
+            # lauch asynchronous task
+            payment_completed.delay(order.id)
             print("PAID")
 
     return HttpResponse(status=200)
