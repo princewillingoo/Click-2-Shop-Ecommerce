@@ -14,7 +14,6 @@ def payment_process(request):
     order_id = request.session.get('order_id', None)
     order = get_object_or_404(Order, id=order_id)
     amount = order.get_total_cost()
-    metadata= json.dumps({"order_id":order_id})
 
     if request.method == 'POST':
         success_url = request.build_absolute_uri(
@@ -22,7 +21,19 @@ def payment_process(request):
 
         cancel_url = request.build_absolute_uri(
             reverse('payment:canceled'))
-    
+
+        metadata= json.dumps({"order_id":order_id,  "cancel_action":cancel_url,   
+                              "custom_fields":[{
+                                  "display_name":"Invoice ID",
+                                  "variable_name":"Invoice ID",
+                                  "value":209
+                                  },{
+                                      "display_name":"Cart Items",
+                                      "variable_name":"cart_items",
+                                      "value":"3 bananas, 12 mangoes"
+                                    }]
+                             })
+
         # PayStack checkout session data
         session_data = {
             'email': order.email,
