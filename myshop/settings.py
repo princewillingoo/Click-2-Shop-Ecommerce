@@ -153,5 +153,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 PAYSTACK_TEST_SECRETE_KEY=env('PAYSTACK_TEST_SECRETE_KEY')
 PAYSTACK_TEST_PUBLIC_KEY=env('PAYSTACK_TEST_PUBLIC_KEY')
 PAYSTACK_INITIALIZE_PAYMENT_URL= 'https://api.paystack.co/transaction/initialize'
-#Test Callback URL
-#Test Webhook URL
+
+# Redis settings
+REDIS_HOST=env('REDIS_HOST')
+REDIS_PORT=env('REDIS_PORT')
+REDIS_DB=env('REDIS_DB')
