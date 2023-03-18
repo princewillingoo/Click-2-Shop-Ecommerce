@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-18 13:36+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2023-03-18 20:04+0000\n"
+"Last-Translator:   <princewillingoo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
 
 #: cart/forms.py:9 templates/cart/detail.html:16
 #: templates/orders/order/pdf.html:24 templates/payment/process.html:15
@@ -77,6 +78,8 @@ msgid ""
 "              \"%(code)s\" coupon (%(discount)s%% off)\n"
 "            "
 msgstr ""
+"\n"
+"\"%(code)s\" coupon (%(discount)s%% apagado)"
 
 #: templates/cart/detail.html:71 templates/orders/order/create.html:28
 #: templates/orders/order/pdf.html:58 templates/payment/process.html:16
@@ -116,6 +119,8 @@ msgid ""
 "            \"%(code)s\" (%(discount)s%% off)\n"
 "          "
 msgstr ""
+"\n"
+"\"%(code)s\" (%(discount)s%% apagado)"
 
 #: templates/orders/order/create.html:32
 msgid "Place order"
@@ -149,6 +154,8 @@ msgid ""
 "              \"%(code)s\" (%(discount)s%% off)\n"
 "            "
 msgstr ""
+"\n"
+"\"%(code)s\" (%(discount)s%% apagado)"
 
 #: templates/orders/order/pdf.html:65
 msgid "Paid"
@@ -209,7 +216,11 @@ msgid_plural ""
 "                    %(items)s items, $%(total)s\n"
 "                    "
 msgstr[0] ""
+"\n"
+"%(items)s producto, $%(total)s"
 msgstr[1] ""
+"\n"
+"%(items)s productos, $%(total)s"
 
 #: templates/shop/base.html:27
 msgid "Your cart is empty."

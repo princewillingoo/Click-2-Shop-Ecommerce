@@ -17,6 +17,7 @@ cssselect2==0.7.0
 decorator==5.1.1
 Django==4.1.5
 django-environ==0.9.0
+django-rosetta==0.9.8
 executing==1.2.0
 flower==1.2.0
 fonttools==4.38.0
@@ -31,6 +32,7 @@ parso==0.8.3
 pexpect==4.8.0
 pickleshare==0.7.5
 Pillow==9.4.0
+polib==1.2.0
 prometheus-client==0.16.0
 prompt-toolkit==3.0.36
 psycopg2-binary==2.9.5
