@@ -38,7 +38,7 @@ class Product(TranslatableModel):
     updated = models.DateTimeField(auto_now=True)
     
     class Meta:
-        ordering = ['name']
+        # ordering = ['name']
         indexes = [
             # models.Index(fields=['id', 'slug']),
             # models.Index(fields=['name']),
