@@ -119,6 +119,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# django-parler settings
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en'},
+        {'code': 'es'},
+        ),
+    'default': {
+        'fallback': 'en',
+        'hide_untranslated': False,
+        }
+    }
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
